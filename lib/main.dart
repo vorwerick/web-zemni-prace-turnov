@@ -32,7 +32,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Zemná a stavební práce',
+        title: 'Zemní a stavební práce',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: App.primary),
           useMaterial3: true,
