@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+      If you are serving your web app in a path other than the root, change the
+      href value below to reflect the base path you are serving from.
+
+      The path provided below has to start and end with a slash "/" in order for
+      it to work correctly.
+
+      For more details:
+      * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+      This is a placeholder for base href that will be replaced by the value of
+      the `--base-href` argument provided to `flutter build`.
+    -->
+    <base href="$FLUTTER_BASE_HREF">
+
+
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Zemní a stavební práce - Poskytujeme terénní úpravy, vrtání děr, bazény na klíč, kanalizace, retenční nádrže, ČOV, stavby plotů a základových desek - menší stavební práce.">
+    <meta name="keywords"
+          content="Zemní práce, výkopy, nádrž, bagr, ČOV, bazén, základová deska, Turnov, Semily, Liberec">
+    <meta name="author" content="Pavel Vávra">
+
+    <!-- Open Graph pro sociální sítě -->
+    <meta property="og:title" content="Zemní a stavební práce Pavel Vávra">
+    <meta property="og:description"
+          content="Poskytujeme terénní úpravy, vrtání děr, bazény na klíč, kanalizace, retenční nádrže, ČOV, stavby plotů a základových desek - menší stavební práce.">
+    <meta property="og:image" content="URL obrázku ke sdílení">
+    <meta property="og:url" content="http://dzubera.cz/photos-zemni-prace/cat/cat-0.jpeg">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zemní a stavební práce Pavel Vávra">
+    <meta name="twitter:description"
+          content="Poskytujeme terénní úpravy, vrtání děr, bazény na klíč, kanalizace, retenční nádrže, ČOV, stavby plotů a základových desek - menší stavební práce.">
+    <meta name="twitter:image" content="http://dzubera.cz/photos-zemni-prace/cat/cat-0.jpeg">
+
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="zemni_prace">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png"/>
+
+    <title>Zemní a výkopové práce</title>
+    <link rel="manifest" href="manifest.json">
+</head>
+<body style="margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f0f0;">
+
+<div style="position: relative; width: 300px; height: 100px;">
+
+    <!-- Pohybující se obrázek -->
+    <img src="http://dzubera.cz/photos-zemni-prace/logo4.png" alt="Načítání..."
+         style="position: absolute; bottom: 30px; width: 100px; animation: slide-left 2s linear infinite;">
+</div>
+<style>
+    @keyframes slide-left {
+        0% {
+            left: 100%; /* Start z pravého kraje */
+        }
+        100% {
+            left: -120px; /* Konec mimo levý kraj */
+        }
+    }
+    img {
+        animation: slide-left 2s linear infinite;
+    }
+</style>
+</body>
+<script type="text/javascript">
+    window.flutterWebRenderer = "html";
+</script>
+<script src="flutter_bootstrap.js" async></script>
+
+</body>
+</html>

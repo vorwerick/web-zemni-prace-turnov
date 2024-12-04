@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zemniprace-turnov.cz/sitemap.xml
