@@ -2,3 +2,5 @@
 /.dart_tool/
 /build/
 /.firebase/
+.flutter-plugins
+.flutter-plugins-dependenciesl
