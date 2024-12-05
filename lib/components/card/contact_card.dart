@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:zemni_prace/components/text/paragraph.dart';
 import 'package:zemni_prace/components/web_image.dart';
 import 'package:zemni_prace/main.dart';
@@ -61,18 +62,33 @@ class _ContactCardState extends State<ContactCard> {
                 begin: Alignment.bottomRight),
           ),
           child: Container(
-            clipBehavior: Clip.antiAlias,
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(6)),
-            ),
-            child: WebImage(
-              description: "Mapa Turnov",
-              height: isSmall ? 300 : 400,
-              width: 500,
-              cover: true,
-              imageUrl: "${App.BASE_PHOTO_URL}/common/map.png",
-            ),
-          ),
+              clipBehavior: Clip.antiAlias,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(6)),
+              ),
+              child: Stack(
+                children: [
+                  WebImage(
+                    description: "Mapa Turnov",
+                    height: isSmall ? 300 : 400,
+                    width: 500,
+                    cover: true,
+                    imageUrl: "${App.BASE_PHOTO_URL}/common/map.png",
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: ElevatedButton(
+                          onPressed: () {
+                            launchUrlString(
+                                "https://maps.app.goo.gl/WRWyTCZeCBAvEkc38");
+                          },
+                          child: const Text("Zobrazit mapu")),
+                    ),
+                  )
+                ],
+              )),
         ),
       ],
     );
