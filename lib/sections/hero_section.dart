@@ -38,7 +38,7 @@ class HeroSection extends StatelessWidget {
                   height: double.infinity,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(right: width * 0.1),
+                  padding: EdgeInsets.only(right: width * 0.05),
                   child: const Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -53,7 +53,7 @@ class HeroSection extends StatelessWidget {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
-                    margin:  EdgeInsets.only(bottom: isSmall?64 : 96),
+                    margin:  EdgeInsets.only(bottom: isSmall?42 : 96),
                     child: ElevatedButton(
                         style: const ButtonStyle(
                             elevation: WidgetStatePropertyAll(12),

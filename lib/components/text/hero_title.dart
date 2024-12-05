@@ -16,7 +16,7 @@ class HeroTitle extends StatelessWidget {
       fontSize = 48;
     }
     if (App.isMobile(context)) {
-      fontSize = 36;
+      fontSize = 28;
     }
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,

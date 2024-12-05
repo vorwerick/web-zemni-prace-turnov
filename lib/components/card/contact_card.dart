@@ -106,10 +106,10 @@ class _ContactCardState extends State<ContactCard> {
                 begin: Alignment.bottomRight),
           ),
           child: Container(
-            margin: EdgeInsets.all(isSmall ? 32 : 48),
+            margin: EdgeInsets.all(isSmall ? 24 : 48),
             child: Paragraph(
               text: widget.description,
-              fontSize: 20,
+              fontSize: isSmall ? 16 : 20,
             ),
           ),
         ),

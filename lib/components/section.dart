@@ -23,6 +23,7 @@ class Section extends StatelessWidget {
       width: double.infinity,
       color: background ?? Colors.transparent,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center  ,
         children: [
           Container(
             width: (margin ?? true) ? width * 0.8 : double.infinity,

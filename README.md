@@ -12,5 +12,5 @@ firebase deploy
 
 ## MISC
 firebase login --reauth
-firebase hosting:clear-cache
+firebase hosting:disable //smazne nasazenou verzi
 firebase deploy --only hosting

@@ -24,7 +24,7 @@ class ServiceCard extends StatelessWidget {
           margin: EdgeInsets.only(top: 4, left: 4),
           padding: EdgeInsets.symmetric(horizontal: isSmall? 16: 20),
           width: isSmall ? 540 : 280,
-          height: isSmall ? 160 : 320,
+          height: isSmall ? 200 : 320,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(6)),
               color: App.backgroundDarkest),
@@ -32,7 +32,7 @@ class ServiceCard extends StatelessWidget {
         Container(
             padding: EdgeInsets.symmetric(horizontal:isSmall? 16:  20),
             width: isSmall ? 540 : 280,
-            height: isSmall ? 160 : 320,
+            height: isSmall ? 200 : 320,
             decoration: BoxDecoration(
               //  border: Border.all(color: App.primaryLight),
               borderRadius: BorderRadius.all(Radius.circular(6)),
