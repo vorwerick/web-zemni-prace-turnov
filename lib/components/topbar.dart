@@ -1,26 +1,22 @@
+import 'package:appwizards_web/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zemni_prace/main.dart';
+
+import '../pages/landing_page.dart';
 
 class TopBar extends StatelessWidget {
-  static GlobalKey<State<StatefulWidget>> servicesKey = GlobalKey();
-  static GlobalKey<State<StatefulWidget>> contactKey = GlobalKey();
-  static GlobalKey<State<StatefulWidget>> priceListKey = GlobalKey();
-  static GlobalKey<State<StatefulWidget>> referencesKey = GlobalKey();
-  static GlobalKey<State<StatefulWidget>> techniqueKey = GlobalKey();
-
   final Function(GlobalKey) action;
 
-  const TopBar({super.key, required this.action});
+  TopBar({super.key, required this.action});
 
   @override
   Widget build(BuildContext context) {
     final bool isSmall = App.isTablet(context) || App.isMobile(context);
     return Container(
         decoration: const BoxDecoration(
-          color: App.primary,
-        ),
-        height: isSmall ? 56 : 72,
+            color: Colors.black,
+            border: Border(bottom: BorderSide(color: Colors.blueGrey))),
+        height: isSmall ? 48 : 64,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -31,35 +27,36 @@ class TopBar extends StatelessWidget {
                   width: 32,
                 ),
                 Image.asset(
-                  key: const Key("white-logo"),
-                  "assets/logo4.png",
-                  height: isSmall ? 32 : 52,
+                  key: const Key("top-logo"),
+                  "assets/potion_dark_128.png",
+                  height: isSmall ? 32 : 42,
                 ),
                 const SizedBox(
                   width: 8,
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Row(
                   children: [
                     Text(
-                      "PAVEL VÁVRA",
+                      "APP",
                       style: GoogleFonts.montserrat(
-                          fontSize: isSmall ? 17 : 24,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 3),
+                        fontSize: isSmall ? 15 : 22,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                      ),
                     ),
                     Text(
-                      "ZEMNÍ A STAVEBNÍ PRÁCE",
+                      "WIZARDS",
                       style: GoogleFonts.montserrat(
-                          fontSize: isSmall ? 10 : 14,
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.w600),
-                    )
+                          fontSize: isSmall ? 15 : 22,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white),
+                    ),
                   ],
                 ),
               ],
             ),
             () {
+              /*
               if (App.isTablet(context) || App.isMobile(context)) {
                 return Row(
                   children: [
@@ -79,7 +76,11 @@ class TopBar extends StatelessWidget {
                   ],
                 );
               }
-              return menuInline();
+
+
+             */
+              //return menuInline();
+              return SizedBox();
             }()
           ],
         ));
@@ -90,46 +91,46 @@ class TopBar extends StatelessWidget {
       children: [
         TextButton(
             onPressed: () {
-              action.call(servicesKey);
+              action.call(LandingPage.servicesKey);
             },
             child: Text(
-              "SLUŽBY",
+              "Služby",
               style: GoogleFonts.montserrat(
                   fontWeight: FontWeight.w500,
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 14),
             )),
         TextButton(
             onPressed: () {
-              action.call(techniqueKey);
+              action.call(LandingPage.techniqueKey);
             },
             child: Text(
-              "TECHNIKA",
+              "O nás",
               style: GoogleFonts.montserrat(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 14,
                   fontWeight: FontWeight.w500),
             )),
         TextButton(
             onPressed: () {
-              action.call(referencesKey);
+              action.call(LandingPage.referencesKey);
             },
             child: Text(
-              "REALIZACE",
+              "Projekty",
               style: GoogleFonts.montserrat(
                   fontWeight: FontWeight.w500,
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 14),
             )),
         TextButton(
             onPressed: () {
-              action.call(priceListKey);
+              action.call(LandingPage.priceListKey);
             },
             child: Text(
-              "CENÍK",
+              "Kontakt",
               style: GoogleFonts.montserrat(
                   fontWeight: FontWeight.w500,
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 14),
             )),
         const SizedBox(
@@ -137,14 +138,14 @@ class TopBar extends StatelessWidget {
         ),
         ElevatedButton(
             style: const ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Colors.black)),
+                backgroundColor: WidgetStatePropertyAll(App.primary)),
             onPressed: () {
-              action.call(contactKey);
+              action.call(LandingPage.contactKey);
             },
             child: Container(
                 padding: const EdgeInsets.all(8),
                 child: Text(
-                  "KONTAKT",
+                  "Kontakt",
                   style:
                       GoogleFonts.montserrat(color: Colors.white, fontSize: 14),
                 ))),
@@ -178,11 +179,11 @@ class TopBar extends StatelessWidget {
         ),
         TextButton(
             onPressed: () {
-              action.call(servicesKey);
+              action.call(LandingPage.servicesKey);
               Navigator.of(context, rootNavigator: true).pop();
             },
             child: Text(
-              "SLUŽBY",
+              "Služby",
               style: GoogleFonts.montserrat(
                   fontWeight: FontWeight.w500,
                   color: Colors.black,
@@ -190,11 +191,11 @@ class TopBar extends StatelessWidget {
             )),
         TextButton(
             onPressed: () {
-              action.call(techniqueKey);
+              action.call(LandingPage.techniqueKey);
               Navigator.of(context, rootNavigator: true).pop();
             },
             child: Text(
-              "TECHNIKA",
+              "O nás",
               style: GoogleFonts.montserrat(
                   color: Colors.black,
                   fontSize: 14,
@@ -202,11 +203,11 @@ class TopBar extends StatelessWidget {
             )),
         TextButton(
             onPressed: () {
-              action.call(referencesKey);
+              action.call(LandingPage.referencesKey);
               Navigator.of(context, rootNavigator: true).pop();
             },
             child: Text(
-              "REALIZACE",
+              "Projekty",
               style: GoogleFonts.montserrat(
                   fontWeight: FontWeight.w500,
                   color: Colors.black,
@@ -214,23 +215,11 @@ class TopBar extends StatelessWidget {
             )),
         TextButton(
             onPressed: () {
-              action.call(priceListKey);
+              action.call(LandingPage.priceListKey);
               Navigator.of(context, rootNavigator: true).pop();
             },
             child: Text(
-              "CENÍK",
-              style: GoogleFonts.montserrat(
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
-                  fontSize: 14),
-            )),
-        TextButton(
-            onPressed: () {
-              action.call(contactKey);
-              Navigator.of(context, rootNavigator: true).pop();
-            },
-            child: Text(
-              "KONTAKT",
+              "Kontakt",
               style: GoogleFonts.montserrat(
                   fontWeight: FontWeight.w500,
                   color: Colors.black,

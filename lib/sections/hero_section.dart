@@ -1,9 +1,7 @@
+import 'package:appwizards_web/components/section.dart';
+import 'package:appwizards_web/components/text/hero_title.dart';
+import 'package:appwizards_web/main.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:zemni_prace/components/section.dart';
-import 'package:zemni_prace/components/text/hero_title.dart';
-import 'package:zemni_prace/components/web_image.dart';
-import 'package:zemni_prace/main.dart';
 
 class HeroSection extends StatelessWidget {
   final Function contactUs;
@@ -17,61 +15,71 @@ class HeroSection extends StatelessWidget {
     final isSmall = App.isMobile(context) || App.isTablet(context);
     return Section(
         margin: false,
+        sectionId: "hero",
+        height: isSmall ? (height * 0.65) : height,
         child: Container(
-            height: isSmall ? (height * 0.75) : height * 0.92,
+            height: isSmall ? (height * 0.65) : height,
             child: Stack(
               fit: StackFit.expand,
               children: [
                 Container(
-                    width: double.infinity,
-                    child: const WebImage(
-                        description: "Pásový bagr caterpilar",
-                        cover: true,
-                        imageUrl: "${App.BASE_PHOTO_URL}/cat/cat-0.jpeg")),
-                Container(
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: [
-                    Colors.black.withOpacity(0.1),
-                    Colors.black.withOpacity(0.7)
-                  ])),
+                      gradient: LinearGradient(
+                          colors: [App.primary, App.secondary],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight)),
+                  width: double.infinity,
+                  height: double.infinity,
+
+                  /*
+                    child: const WebImage(
+                        description: "Vývoj mobilních aplikací",
+                        cover: true,
+                        imageUrl: "http://dzubera.cz/photos-appwizards/hero.png")
+
+                     */
+                ),
+                Container(
+                  color: Colors.black.withOpacity(0.5),
                   width: double.infinity,
                   height: double.infinity,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(right: width * 0.05),
+                  padding: EdgeInsets.only(left: width * 0.05),
                   child: const Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       HeroTitle(
-                          title: "Pomůžeme Vám\ns Vaší stavbou",
-                          slogan:
-                              "Inženýrské sítě i realizace bazénů\na čistíren odpadních vod")
+                          title: "Digitalizujeme\nVáš byznys",
+                          slogan: "Vývoj mobilních a webových aplikací na míru")
                     ],
                   ),
                 ),
+                /*
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
-                    margin:  EdgeInsets.only(bottom: isSmall?42 : 96),
+                    margin: EdgeInsets.only(bottom: isSmall ? 42 : 96),
                     child: ElevatedButton(
                         style: const ButtonStyle(
                             elevation: WidgetStatePropertyAll(12),
                             backgroundColor:
-                                WidgetStatePropertyAll(App.primaryLight)),
+                                WidgetStatePropertyAll(App.secondary)),
                         onPressed: () {
                           contactUs.call();
                         },
-
                         child: Container(
                             padding: const EdgeInsets.all(8),
                             child: Text(
-                              "Kontaktujte nás",
+                              "Poptat",
                               style: GoogleFonts.montserrat(
-                                  color: Colors.black, fontSize: isSmall?16:20),
+                                  color: Colors.white,
+                                  fontSize: isSmall ? 16 : 20),
                             ))),
                   ),
                 )
+
+                 */
               ],
             )));
   }

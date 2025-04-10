@@ -1,7 +1,7 @@
+import 'package:appwizards_web/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seo_renderer/renderers/text_renderer/text_renderer_vm.dart';
-import 'package:zemni_prace/main.dart';
 
 class HeroTitle extends StatelessWidget {
   final String title;
@@ -19,6 +19,7 @@ class HeroTitle extends StatelessWidget {
       fontSize = 28;
     }
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         TextRenderer(
@@ -28,9 +29,8 @@ class HeroTitle extends StatelessWidget {
             style: GoogleFonts.montserrat(
                 color: Colors.white,
                 fontSize: fontSize,
-                letterSpacing: 2,
                 fontWeight: FontWeight.w700),
-            textAlign: TextAlign.end,
+            textAlign: TextAlign.start,
           ),
         ),
         TextRenderer(
@@ -40,9 +40,8 @@ class HeroTitle extends StatelessWidget {
             style: GoogleFonts.montserrat(
                 color: Colors.white,
                 fontSize: fontSize / 2,
-                letterSpacing: 1.2,
                 fontWeight: FontWeight.w500),
-            textAlign: TextAlign.end,
+            textAlign: TextAlign.start,
           ),
         ),
       ],

@@ -1,7 +1,10 @@
+import 'package:appwizards_web/pages/about_page.dart';
+import 'package:appwizards_web/pages/landing_page.dart';
 import 'package:flutter/material.dart';
-import 'package:zemni_prace/pages/landing_page.dart';
+import 'package:url_strategy/url_strategy.dart';
 
-void main() {
+Future<void> main() async {
+  setPathUrlStrategy();
   runApp(const App());
 }
 
@@ -19,27 +22,38 @@ class App extends StatelessWidget {
 
   static const String BASE_PHOTO_URL = "http://dzubera.cz/photos-zemni-prace";
 
-  static const Color primaryLight = Color(0xFFf2984c);
-  static const Color primary = Color(0xFFF08C38);
-  static const Color primaryDark = Color(0xFFd87e32);
+  static const Color primaryLight = Color(0xFFd90e0e);
+  static const Color primary = Color(0xFFd90e0e);
+  static const Color secondary = Color(0xFF8f0ad7);
+  static const Color primaryDark = Color(0xFFd90e0e);
 
-  static const Color backgroundDarkest = Color(0xFFBFA49C);
-  static const Color backgroundDark = Color(0xFFe7ddda);
-  static const Color backgroundLight = Color(0xFFf7f4f3);
+  static const Color backgroundDarkest = Color(0xFF010101);
+  static const Color backgroundDark = Color(0xFF232323);
+  static const Color backgroundLight = Color(0xFF454545);
   static const Color background = Color(0xFFf0eae8);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Zemní a stavební práce',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: App.primary),
-          useMaterial3: true,
-        ),
-        debugShowCheckedModeBanner: false,
-        home: const Material(
-          child: LandingPage(key: Key("root"),),
-        ));
+      title: 'Vývoj mobilních aplikací',
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      // Definice tras
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case "/":
+            return MaterialPageRoute(
+                builder: (c) => Material(
+                      child: LandingPage(
+                        key: Key("root"),
+                      ),
+                    ));
+          default:
+            return MaterialPageRoute(
+                builder: (c) => Material(child: AboutPage()));
+        }
+      },
+    );
   }
 }

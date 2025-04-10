@@ -1,8 +1,8 @@
+import 'package:appwizards_web/components/text/paragraph.dart';
+import 'package:appwizards_web/components/web_image.dart';
+import 'package:appwizards_web/main.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:zemni_prace/components/text/paragraph.dart';
-import 'package:zemni_prace/components/web_image.dart';
-import 'package:zemni_prace/main.dart';
 
 class ContactCard extends StatefulWidget {
   final String description;

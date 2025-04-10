@@ -1,8 +1,10 @@
+import 'package:appwizards_web/components/text/link.dart';
+import 'package:appwizards_web/components/topbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:zemni_prace/components/text/link.dart';
-import 'package:zemni_prace/components/topbar.dart';
+
+import '../pages/landing_page.dart';
 
 class Footer extends StatelessWidget {
   final Function(GlobalKey) action;
@@ -16,7 +18,7 @@ class Footer extends StatelessWidget {
       color: Colors.black,
       child: Wrap(
         alignment: WrapAlignment.spaceAround,
-        children: [menu(context), contact(context), madeBy(context)],
+        children: [menu(context), madeBy(context)],
       ),
     );
   }
@@ -31,7 +33,7 @@ class Footer extends StatelessWidget {
         ),
         TextButton(
             onPressed: () {
-              action.call(TopBar.servicesKey);
+              action.call(LandingPage.servicesKey);
               Navigator.of(context, rootNavigator: true).pop();
             },
             child: Text(
@@ -43,11 +45,11 @@ class Footer extends StatelessWidget {
             )),
         TextButton(
             onPressed: () {
-              action.call(TopBar.techniqueKey);
+              action.call(LandingPage.techniqueKey);
               Navigator.of(context, rootNavigator: true).pop();
             },
             child: Text(
-              "Naše technika",
+              "O nás",
               style: GoogleFonts.montserrat(
                   color: Colors.white,
                   fontSize: 14,
@@ -55,40 +57,18 @@ class Footer extends StatelessWidget {
             )),
         TextButton(
             onPressed: () {
-              action.call(TopBar.referencesKey);
+              action.call(LandingPage.referencesKey);
               Navigator.of(context, rootNavigator: true).pop();
             },
             child: Text(
-              "Reference",
+              "Projekty",
               style: GoogleFonts.montserrat(
                   fontWeight: FontWeight.w500,
                   color: Colors.white,
                   fontSize: 14),
             )),
-        TextButton(
-            onPressed: () {
-              action.call(TopBar.priceListKey);
-              Navigator.of(context, rootNavigator: true).pop();
-            },
-            child: Text(
-              "Ceník",
-              style: GoogleFonts.montserrat(
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                  fontSize: 14),
-            )),
-        TextButton(
-            onPressed: () {
-              launchUrl(
-                  (Uri.parse('https://www.facebook.com/stavbyturnov.cz/')));
-            },
-            child: Text(
-              "Facebook",
-              style: GoogleFonts.montserrat(
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                  fontSize: 14),
-            )),
+
+
         const SizedBox(
           height: 32,
         ),
@@ -120,22 +100,17 @@ class Footer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Zemní a stavební práce\n© 2024 Všechna práva vyhrazena",
+                  "Vývoj mobilních aplikací\n© 2024 Všechna práva vyhrazena",
                   style: GoogleFonts.montserrat(
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
                       fontSize: 14),
                 ),
-                Link(
-                    text: "zemniprace-turnov.cz",
-                    color: Colors.white,
-                    url: 'https://zemniprace-turnov.cz',
-                    fontSize: 14),
               ],
             ),
             SizedBox(width: 32,),
             Image.asset(
-              "assets/logo-white.png",
+              "assets/potion_dark_128.png",
               height: 64,
             ),
           ],

@@ -1,7 +1,7 @@
+import 'package:appwizards_web/components/text/card_title.dart';
+import 'package:appwizards_web/components/text/paragraph.dart';
+import 'package:appwizards_web/main.dart';
 import 'package:flutter/material.dart';
-import 'package:zemni_prace/components/text/card_title.dart';
-import 'package:zemni_prace/components/text/paragraph.dart';
-import 'package:zemni_prace/main.dart';
 
 class PriceCard extends StatelessWidget {
   final String title;

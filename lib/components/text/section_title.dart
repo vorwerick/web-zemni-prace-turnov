@@ -1,7 +1,7 @@
+import 'package:appwizards_web/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seo_renderer/renderers/text_renderer/text_renderer_vm.dart';
-import 'package:zemni_prace/main.dart';
 
 class SectionTitle extends StatelessWidget {
   final String text;
@@ -23,15 +23,12 @@ class SectionTitle extends StatelessWidget {
         TextRenderer(
           text: text,
           child: Container(
-            decoration: const BoxDecoration(
-                border:
-                    Border(bottom: BorderSide(color: App.primary, width: 6))),
+
             child: SelectableText(
               text,
               style: GoogleFonts.montserrat(
                   color: Colors.black,
-                  letterSpacing: 2,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
                   fontSize: fontSize),
             ),
           ),

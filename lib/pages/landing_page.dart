@@ -1,17 +1,22 @@
 import 'dart:developer';
 
+import 'package:appwizards_web/components/footer.dart';
+import 'package:appwizards_web/components/topbar.dart';
+import 'package:appwizards_web/sections/about_section.dart';
+import 'package:appwizards_web/sections/hero_section.dart';
+import 'package:appwizards_web/sections/plain_contact_section.dart';
+import 'package:appwizards_web/sections/references_section.dart';
+import 'package:appwizards_web/sections/services_section.dart';
 import 'package:flutter/material.dart';
-import 'package:zemni_prace/components/footer.dart';
-import 'package:zemni_prace/components/topbar.dart';
-import 'package:zemni_prace/sections/contact_section.dart';
-import 'package:zemni_prace/sections/hero_section.dart';
-import 'package:zemni_prace/sections/pricelist_section.dart';
-import 'package:zemni_prace/sections/references_section.dart';
-import 'package:zemni_prace/sections/services_section.dart';
-import 'package:zemni_prace/sections/technique_section.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
+
+  static GlobalKey<State<StatefulWidget>> servicesKey = GlobalKey();
+  static GlobalKey<State<StatefulWidget>> contactKey = GlobalKey();
+  static GlobalKey<State<StatefulWidget>> priceListKey = GlobalKey();
+  static GlobalKey<State<StatefulWidget>> referencesKey = GlobalKey();
+  static GlobalKey<State<StatefulWidget>> techniqueKey = GlobalKey();
 
   @override
   State<LandingPage> createState() => _LandingPageState();
@@ -21,12 +26,9 @@ class _LandingPageState extends State<LandingPage> {
   final ScrollController _controller = ScrollController();
 
   void scrollToTarget(GlobalKey target) {
-    final RenderBox renderBox =
-        target.currentContext!.findRenderObject() as RenderBox;
-    final position = renderBox.localToGlobal(Offset.zero);
-    _controller.animateTo(
-      _controller.offset + position.dy,
-      duration: const Duration(seconds: 1),
+    Scrollable.ensureVisible(
+      target.currentContext!,
+      duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
     );
   }
@@ -36,36 +38,42 @@ class _LandingPageState extends State<LandingPage> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
 
+    final sectionHeight = height * 0.9;
+
     log(width.toString() + "x" + height.toString());
-    return SingleChildScrollView(
+    return ListView(
       controller: _controller,
-      child: Column(
-        children: [
-          TopBar(
-              key: const Key("topbar"),
-              action: (target) {
-                scrollToTarget(target);
-              }),
-          HeroSection(
-            key: const Key("hero"),
-            contactUs: () {
-              scrollToTarget(TopBar.contactKey);
-            },
-          ),
-          ServicesSection(
-            key: TopBar.servicesKey,
-          ),
-          TechniqueSection(key: TopBar.techniqueKey),
-          ReferencesSection(key: TopBar.referencesKey),
-          PricelistSection(key: TopBar.priceListKey),
-          ContactSection(key: TopBar.contactKey),
-          Footer(
-              key: const Key("footer"),
-              action: (target) {
-                scrollToTarget(target);
-              }),
-        ],
-      ),
+      children: [
+        TopBar(
+            key: const Key("topbar"),
+            action: (target) {
+              scrollToTarget(target);
+            }),
+        HeroSection(
+          key:  Key("hero"),
+
+
+          contactUs: () {
+          },
+        ),
+        const ServicesSection(
+          key: Key("services"),
+        ),
+        const AboutSection(
+          key: Key("about"),
+        ),
+        const ReferencesSection(
+          key: Key("references"),
+        ),
+        const PlainContactSection(
+          key: Key("contact"),
+        ),
+        Footer(
+            key: const Key("footer"),
+            action: (target) {
+              scrollToTarget(target);
+            }),
+      ],
     );
   }
 }

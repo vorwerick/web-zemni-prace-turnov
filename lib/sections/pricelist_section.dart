@@ -1,7 +1,7 @@
+import 'package:appwizards_web/components/card/price_card.dart';
+import 'package:appwizards_web/components/section.dart';
+import 'package:appwizards_web/main.dart';
 import 'package:flutter/material.dart';
-import 'package:zemni_prace/components/card/price_card.dart';
-import 'package:zemni_prace/components/section.dart';
-import 'package:zemni_prace/main.dart';
 
 class PricelistSection extends StatelessWidget {
   const PricelistSection({super.key});
@@ -10,6 +10,8 @@ class PricelistSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     return Section(
+      height: height,
+        sectionId: "pricelist",
         background: App.background,
         title: "CENÍK",
         child: Container(

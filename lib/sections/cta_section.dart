@@ -3,17 +3,17 @@ import 'package:appwizards_web/components/section.dart';
 import 'package:appwizards_web/main.dart';
 import 'package:flutter/material.dart';
 
-class ContactSection extends StatelessWidget {
-  const ContactSection({super.key});
+class CtaSection extends StatelessWidget {
+  const CtaSection({super.key});
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     return Section(
-        sectionId: "contact",
       height: height,
+        sectionId: "cta",
       background: App.background,
-        title: "Kontakt",
+        title: "Ozvěte se nám",
         child: Container(
             child: Wrap(
           children: [

@@ -1,8 +1,7 @@
+import 'package:appwizards_web/components/text/card_title.dart';
+import 'package:appwizards_web/components/text/paragraph.dart';
+import 'package:appwizards_web/main.dart';
 import 'package:flutter/material.dart';
-import 'package:zemni_prace/components/text/card_title.dart';
-import 'package:zemni_prace/components/text/paragraph.dart';
-import 'package:zemni_prace/main.dart';
-
 class ServiceCard extends StatelessWidget {
   final String title;
   final String description;
@@ -21,25 +20,25 @@ class ServiceCard extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          margin: EdgeInsets.only(top: 4, left: 4),
+          margin: EdgeInsets.only(top: 3, left:3),
           padding: EdgeInsets.symmetric(horizontal: isSmall? 16: 20),
           width: isSmall ? 540 : 280,
-          height: isSmall ? 200 : 320,
+          height: isSmall ? 200 : 400,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(6)),
-              color: App.backgroundDarkest),
+              borderRadius: BorderRadius.all(Radius.circular(0)),
+              color: App.backgroundLight),
         ),
         Container(
             padding: EdgeInsets.symmetric(horizontal:isSmall? 16:  20),
             width: isSmall ? 540 : 280,
-            height: isSmall ? 200 : 320,
+            height: isSmall ? 200 : 400,
             decoration: BoxDecoration(
-              //  border: Border.all(color: App.primaryLight),
-              borderRadius: BorderRadius.all(Radius.circular(6)),
+               border: Border.all(color: Colors.black, width: 1),
+              borderRadius: BorderRadius.all(Radius.circular(0)),
               gradient: LinearGradient(
-                  colors: [App.primaryLight, App.primaryDark],
-                  end: Alignment.bottomRight,
-                  begin: Alignment.topLeft),
+                  colors: [App.backgroundDark, App.backgroundDarkest],
+                  end: Alignment.topRight,
+                  begin: Alignment.bottomCenter),
             ),
             child: content(isSmall)),
       ],
@@ -73,6 +72,7 @@ class ServiceCard extends StatelessWidget {
           Paragraph(
             text: description,
             fontSize: 16,
+            color: Colors.white,
           ),
           SizedBox(
             height: isSmall ? 8 : 32,
@@ -100,7 +100,8 @@ class ServiceCard extends StatelessWidget {
         ),
         Paragraph(
           text: description,
-          fontSize: 16,
+          color: Colors.white,
+          fontSize: 14,
         ),
         SizedBox(
           height: isSmall ? 24 : 32,

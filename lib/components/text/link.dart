@@ -1,8 +1,8 @@
+import 'package:appwizards_web/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seo_renderer/renderers/link_renderer/link_renderer_vm.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:zemni_prace/main.dart';
 
 class Link extends StatelessWidget {
   final String text;
